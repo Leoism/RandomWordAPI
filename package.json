@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "jasmine": "^3.4.0"
+  },
+ "scripts": {
+    "test": "jasmine test/random_word_test.js"
+ }
+}
