@@ -32,7 +32,7 @@ function shuffleArr(arr) {
 function getRandomShuffledWord(groupID, gamesInSession) {
     if(gamesInSession[groupID] && gamesInSession[groupID]['word']) {
         return 'Game already in progress for word: '
-        + gamesInSession[groupID]['word'];
+        + gamesInSession[groupID]['shuffledWord'];
     }
 
     const randomWord = getRandomWord()
@@ -47,12 +47,14 @@ function getRandomShuffledWord(groupID, gamesInSession) {
      *    123: {
      *        'word': 'randomWord',
      *        'passers': [],
+     *        'shuffledWord': Wordradnom,
      *    }
      * }
      */
     gamesInSession[groupID] = {
         word: randomWord,
         passers: [],
+        shuffledWord: word,
     };
     return word;
 }
@@ -112,6 +114,7 @@ function next(userID, groupID, gamesInSession, limit=3) {
 function passGame(currGame) {
     delete currGame['word'];
     delete currGame['passers'];
+    delete currGame['shuffledWord'];
     return 'PASSING_GAME';
 }
 

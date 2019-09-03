@@ -28,7 +28,7 @@ describe("Scramble functionality", () => {
 
     it('should not create new game if one is in session', () => {
         const actual = scramble.getRandomShuffledWord(123, gamesInSession);
-        expect(actual).toBe(`Game already in progress for word: ${actualWord}`);
+        expect(actual).toBe(`Game already in progress for word: ${randomWord}`);
         expect(gamesInSession['123']['word']).toBe(actualWord);
         expect(gamesInSession['123']).not.toEqual({});
     });
